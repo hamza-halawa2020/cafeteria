@@ -83,10 +83,5 @@ class Products extends Database
 
     }
 
-    function insertIntoCart($userID, $id)
-    {
-        $result = $this->runDataBase("INSERT INTO `cart`(user_id`, `product_id`) VALUES ($userID,$id)");
-        return $result;
 
-    }
 }

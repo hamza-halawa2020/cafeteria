@@ -1,6 +1,6 @@
 <?php
 require_once '../admin/vendor/autoload.php';
-use App\Classes\Database;
+use App\Classes\Cart;
 use App\Classes\Products;
 use App\Classes\Users;
 
@@ -11,30 +11,11 @@ if (!isset($_SESSION['email'])) {
     header("Location: login.php");
 }
 $Products = new Products();
-$User = new USers();
+$User = new Users();
+$Cart = new Cart();
 
+$cartData = $Cart->showCart();
 
-// $sql = "SELECT * FROM cart ( product_id, user_id, quantity)
-// VALUES ( '$productId', '$userId', '$productQuantity')";
-
-// $connection->runDataBase($sql);
-
-// header("Location: cart.php");
-// unset($_SESSION['cart']);
-
-$connection = new Database();
-
-$sql = "SELECT * FROM cart"; // Adjust the query based on your database structure
-$stmt = $connection->runDataBase($sql);
-$stmt->execute();
-
-// Check if the query was successful
-if ($stmt) {
-    $cartData = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    // Handle the case where the query failed
-    $cartData = array();
-}
 ?>
 
 
@@ -89,6 +70,8 @@ if ($stmt) {
             <th>Product Price</th>
             <th>Product Quantity</th>
             <th>Total Price</th>
+            <th>Status</th>
+
             <th>Delete</th>
         </tr>
 
@@ -104,7 +87,13 @@ if ($stmt) {
                     <th>Product Price</th>
                     <td>{$row['quantity']}</td>
                     <th>Total Price</th>
-                    <td><button>Delete</button></td>
+                    <th>Status</th>
+
+                    <td>
+                        <button>
+                            <a href='delete.php?id={$row['id']}' class='button delete-button' onclick='return confirm(\'Are you sure you want to delete this product?\');'>Delete</a>
+                        </button>
+                    </td>
                 </tr>";
         }
         ?>

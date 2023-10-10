@@ -15,7 +15,6 @@ $users = new Users();
 $userData = $users->showUserByEmail($userEmail);
 
 if ($userData && $userData[0]['isAdmin'] === 'admin') {
-    echo "<p><strong>Is Admin:</strong> Yes</p>";
 } else {
     header("Location: http://localhost/php/project/index.php");
 }

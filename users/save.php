@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
 
         $connection->runDataBase($sql);
 
-        header("Location: cart.php");
+        header("Location: orders.php");
         unset($_SESSION['cart']);
 
 

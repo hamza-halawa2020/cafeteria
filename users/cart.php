@@ -149,6 +149,7 @@ $showUser = $User->showUserByEmail($_SESSION['email']);
                 <td>{$value['name']}</td>
                 <td>{$value['price']}</td>
                 <td>
+
                     <form method='post' action=''>
                         <input type='number' value='{$value['quantity']}' name='newQuantity'>
                         <input type='hidden' name='updateProductId' value='{$value['id']}'>
