@@ -7,6 +7,7 @@ session_start();
 if (!isset($_SESSION['email'])) {
     header("Location: login.php");
 }
+$userEmail = $_SESSION['email'];
 
 use App\Classes\Users;
 

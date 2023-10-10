@@ -65,6 +65,7 @@
                 } else {
                     echo '<a href="http://localhost/php/project/users/all-products.php">All Products</a>';
                     echo '<a href="http://localhost/php/project/users/cart.php">Cart</a>';
+                    echo '<a href="http://localhost/php/project/users/orders.php">orders</a>';
                     echo '<a href="http://localhost/php/project/admin/users/logout.php">Logout</a>';
 
                 }

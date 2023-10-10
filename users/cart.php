@@ -174,7 +174,7 @@ $showUser = $User->showUserByEmail($_SESSION['email']);
                 Total:
                 <?php
                 $total = 0;
-                if (!$total) {
+                if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
                     foreach ($_SESSION['cart'] as $value) {
                         $total += $value['price'] * $value['quantity'];
                     }
