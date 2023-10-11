@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['isAdmin'];
         $_SESSION['id'];
-        header("location: dashboard.php");
+        header("location: http://localhost/php/project/index.php");
     } else {
         header("location: login.php");
     }
@@ -31,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeteria Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,83 +60,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 20px;
             color: #333;
         }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #333;
-            display: block;
-            text-align: left;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        input[type="submit"] {
-            padding: 15px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #2980b9;
-        }
-
-        a {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 
 <body>
     <?php include_once '../includes/header.php' ?>
     <div class="container mt-5">
-
-
-
-        <h2>Cafeteria Login</h2>
+        <h2 class="mb-4">Cafeteria Login</h2>
         <form action="" method="POST">
-            <label for="email">Email</label>
-            <div style="color: red;">
-                <?php echo $checkEmailRegisterd ? "$checkEmailRegisterd" : ""; ?>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Enter your email">
+                <small class="text-danger">
+                    <?php echo $checkEmailRegisterd ? $checkEmailRegisterd : ""; ?>
+                </small>
             </div>
-            <input name="email" type="email" id="email" placeholder="Enter your email">
-            <label for="password">Password</label>
-            <div style="color: red;">
-                <?php echo $checkPasswordRegistered ? "$checkPasswordRegistered" : ""; ?>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="password" type="password" class="form-control" id="password"
+                    placeholder="Enter your password">
+                <small class="text-danger">
+                    <?php echo $checkPasswordRegistered ? $checkPasswordRegistered : ""; ?>
+                </small>
             </div>
-            <input name="password" type="password" id="password" placeholder="Enter your password">
-            <a href="recovery.php">Forgot password?</a>
-            <a href="register.php">Don't have an account? Register here.</a>
-            <input type="submit" value="Login">
+            <a href="recovery.php">Forgot password?</a><br>
+            <a href="register.php">Don't have an account? Register here.</a><br>
+            <button type="submit" class="btn btn-primary mt-3">Login</button>
         </form>
     </div>
 
     <?php include_once '../includes/footer.php' ?>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

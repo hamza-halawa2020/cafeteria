@@ -57,20 +57,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             background-color: #f0f0f0;
         }
 
@@ -84,34 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         .form-group {
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #2980b9;
+            margin-bottom: 20px;
         }
 
         /* Style for the profile picture section */
@@ -155,26 +127,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php include_once '../includes/header.php' ?>
 
     <div class="container">
-        <h1>Hello from the Products Page</h1>
-        <p>Email:
-            <?php echo $userEmail; ?>
-        </p>
+        <h1 class="mb-4">Add User</h1>
 
         <form action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input name="name" type="text" id="name" placeholder="Enter product name">
+                <input name="name" type="text" class="form-control" id="name" placeholder="Enter name">
             </div>
 
             <div class="form-group">
-                <label for="quantity">email</label>
-                <input name="email" type="email" id="email" placeholder="Quantity">
-            </div>
-            <div class="form-group">
-                <label for="name">password:</label>
-                <input name="password" type="password" id="password" placeholder="Enter product password">
+                <label for="email">Email:</label>
+                <input name="email" type="email" class="form-control" id="email" placeholder="Enter email">
             </div>
 
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input name="password" type="password" class="form-control" id="password" placeholder="Enter password">
+            </div>
 
 
             <div class="profile-picture-section">
@@ -185,17 +154,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <span>Click to upload a product photo</span>
                 </label>
             </div>
+
             <div class="form-group">
-                <label for="name">is Admin:</label>
-                <input name="isAdmin" type="isAdmin" id="isAdmin" placeholder="isAdmin">
+                <label for="isAdmin">Is Admin:</label>
+                <input name="isAdmin" type="text" class="form-control" id="isAdmin"
+                    placeholder="Enter 'admin' or 'user'">
             </div>
-            <button name="addUserBTN" type="submit">Add Product</button>
+
+            <button name="addUserBTN" type="submit" class="btn btn-primary">Add User</button>
         </form>
     </div>
 
-
-
     <?php include_once '../includes/footer.php' ?>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

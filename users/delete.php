@@ -12,4 +12,4 @@ if (isset($_GET['id'])) {
 }
 
 $cart->destroy($id);
-header("location: orders.php");
+header("location: all-orders.php");

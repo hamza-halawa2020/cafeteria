@@ -79,8 +79,9 @@ $userEmail = $_SESSION['email'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit users</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -179,42 +180,27 @@ $userEmail = $_SESSION['email'];
         <?php echo $userEmail; ?>
     </p>
 
-
     <div class="container">
-        <h1>Edit users</h1>
+        <h1>Edit User</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
-                <div class=" form-group">
-                    <p>Id:
-                        <span>
-                            <?php echo $showData['id']; ?>
-                        </span>
-                    </p>
-
-                    <p>Permission:
-                        <span>
-                            <?php echo $showData['isAdmin']; ?>
-                        </span>
-                    </p>
-
-                </div>
                 <label for="name">Product Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter name"
+                <input type="text" id="name" name="name" class="form-control" placeholder="Enter name"
                     value="<?php echo $showData['name']; ?>">
             </div>
-            <div class=" form-group">
+            <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="text" id="email" name="email" placeholder="email"
+                <input type="text" id="email" name="email" class="form-control" placeholder="Email"
                     value="<?php echo $showData['email']; ?>">
             </div>
-            <div class=" form-group">
+            <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" placeholder="password"
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"
                     value="<?php echo $showData['password']; ?>">
             </div>
-            <div class=" profile-picture-section">
-                <label for="ProfilePicture">Profile Picture</label>
+            <div class="profile-picture-section">
+                <label for="ProfilePicture">Profile Picture:</label>
                 <input name="file" type="file" id="ProfilePicture">
                 <label class="profile-picture-label" for="ProfilePicture">
                     <i class="fas fa-camera"></i>
@@ -222,15 +208,15 @@ $userEmail = $_SESSION['email'];
                 </label>
             </div>
 
-
-
-
-            <button type="submit" name="updateUsersBTN">Update Product</button>
+            <button type="submit" name="updateUsersBTN" class="btn btn-primary">Update User</button>
         </form>
     </div>
 
-
     <?php include_once '../includes/footer.php' ?>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

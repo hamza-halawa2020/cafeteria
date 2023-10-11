@@ -17,9 +17,9 @@ $showUser = $User->showUserByEmail($_SESSION['email']);
 if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
 
 }
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submitBTN'])) {
     foreach ($_SESSION['cart'] as $value) {
         // $totalPrice = $value['price'] * $value['quantity'];
         $productId = $value['id'];

@@ -10,7 +10,6 @@ if (!isset($_SESSION['email'])) {
 $Products = new Products();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +17,7 @@ $Products = new Products();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,8 +27,6 @@ $Products = new Products();
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -114,42 +112,45 @@ $Products = new Products();
     <?php include_once '../admin/includes/header.php' ?>
 
     <div class="container">
-        <h1>Hello from the Products Page</h1>
+        <h1 class="mt-5">Hello from the Products Page</h1>
     </div>
 
-    <?php
-    $products = $Products->showProduct();
+    <div class="container">
+        <?php
+        $products = $Products->showProduct();
 
-    if ($products) {
-        foreach ($products as $product) {
-            echo "<div class='product-card'>";
-            echo "<img src='{$product['photo']}' alt='Product Photo'>";
-            echo "<p><strong>Product Name:</strong> {$product['name']}</p>";
-            echo "<p><strong>Price:</strong> {$product['price']} L.E</p>";
-            echo "<p><strong>Quantity:</strong> {$product['quantity']}</p>";
+        if ($products) {
+            foreach ($products as $product) {
+                echo "<div class='product-card'>";
+                echo "<img src='{$product['photo']}' alt='Product Photo' class='img-fluid'>";
+                echo "<p class='font-weight-bold'>Product Name: {$product['name']}</p>";
+                echo "<p><strong>Price:</strong> {$product['price']} L.E</p>";
+                echo "<p><strong>Quantity:</strong> {$product['quantity']}</p>";
 
-            echo "<div class='button-container'>";
-            echo "<form action='cart.php' method='POST'>";
-            echo "<input type='hidden' name='productId' value='{$product['id']}'>";
-            echo "<input type='hidden' name='productName' value='{$product['name']}'>";
-            echo "<input type='hidden' name='productPrice' value='{$product['price']}'>";
+                echo "<div class='button-container'>";
+                echo "<form action='cart.php' method='POST'>";
+                echo "<input type='hidden' name='productId' value='{$product['id']}'>";
+                echo "<input type='hidden' name='productName' value='{$product['name']}'>";
+                echo "<input type='hidden' name='productPrice' value='{$product['price']}'>";
 
-            echo "<input type='number' name='quantity' value='1' min='1' max='{$product['quantity']}'>";
+                echo "<input type='number' name='quantity' value='1' min='1' max='{$product['quantity']}' class='form-control mb-2'>";
+                echo "<button type='submit' name='addToCart' class='btn btn-primary'>Add to Cart</button>";
+                echo "</form>";
+                echo "</div>";
 
-            echo "<input type='submit' name='addToCart' value='Add to Cart' class='button edit-button'>";
-            echo "</form>";
-            echo "</div>";
-
-            echo "</div>";
-
+                echo "</div>";
+            }
+        } else {
+            echo "<p>No products available.</p>";
         }
-    } else {
-        echo "<p>No products available.</p>";
-    }
-    ?>
-
+        ?>
+    </div>
 
     <?php include_once '../admin/includes/footer.php' ?>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -48,11 +48,7 @@ if ($userData && $userData[0]['isAdmin'] === 'admin') {
                 echo "<p><strong>Id:</strong> {$user['id']}</p>";
             }
         }
-        // echo $userData[$this->isAdmin];
-        // echo $userData;
-        
-        // echo "<p><strong>Is Admin:</strong> {$userEmail['isAdmin']}</p>";
-        
+
         ?>
     </div>
 
