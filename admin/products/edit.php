@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 $imagePath = "/assets/images/" . time() . $imageName;
 
-                if (move_uploaded_file($tmpPath, $imagePath)) {
+                if (move_uploaded_file($tmpPath, '..' . $imagePath)) {
                     $product->photo = $imagePath;
                     $product->update($id);
 

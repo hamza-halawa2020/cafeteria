@@ -20,7 +20,7 @@ $userData = $users->showUserByEmail($userEmail);
 
 if ($userData && $userData[0]['isAdmin'] === 'admin') {
 } else {
-    header("Location: http://localhost/php/project/index.php");
+    header("Location: http://localhost/php/project/users/orders.php");
 }
 
 
@@ -58,6 +58,7 @@ $cartData = $Cart->showCart();
                     <th>ID</th>
                     <th>Product ID</th>
                     <th>User ID</th>
+                    <th>Product image</th>
                     <th>Product Name</th>
                     <th>User Name</th>
                     <th>Product Price</th>
@@ -82,6 +83,9 @@ $cartData = $Cart->showCart();
                             <?php echo $row['cart_user_id']; ?>
                         </td>
                         <td>
+                            <img src="<?php echo '../admin' . $row['product_image']; ?>" alt="Product Image" width="100">
+                        </td>
+                        <td>
                             <?php echo $row['product_name']; ?>
                         </td>
                         <td>
@@ -93,15 +97,22 @@ $cartData = $Cart->showCart();
                         <td>
                             <?php echo $row['quantity']; ?>
                         </td>
+
                         <td>
                             <?php echo $totalPrice; ?>
                         </td>
+
                         <td>
                             <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
+                                <option>
+                                    <?php echo $row['status']; ?>
+                                </option>
                             </select>
+
+
                         </td>
+
+
                         <td>
                             <a href='delete.php?id=<?php echo $row['cart_id']; ?>' class='btn btn-danger'
                                 onclick='return confirm("Are you sure you want to delete this product?");'>Delete</a>

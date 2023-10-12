@@ -55,7 +55,7 @@ $Products = new Products();
         if ($products) {
             foreach ($products as $product) {
                 echo "<div class='card product-card'>";
-                echo "<img src='../{$product['photo']}' alt='Product Photo' class='card-img-top'>";
+                echo "<img src='../{$product['photo']}' alt='Product Photo' class='card-img-top' >";
                 echo "<div class='card-body'>";
                 echo "<p class='card-text'><strong>Product Name:</strong> {$product['name']}</p>";
                 echo "<p class='card-text'><strong>Price:</strong> {$product['price']}</p>";

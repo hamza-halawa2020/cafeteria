@@ -74,7 +74,7 @@ $users = new Users;
                 echo "<p><strong>Name:</strong> {$user['name']}</p>";
                 echo "<p><strong>Email:</strong> {$user['email']}</p>";
                 echo "<p><strong>Password:</strong> {$user['password']}</p>";
-                echo "<p><strong>Profile Picture:</strong><img src=' {$user['profirPicturePath']}'></p>";
+                echo "<p><strong>Profile Picture:</strong><img src=' ..{$user['profirPicturePath']}'></p>";
                 echo "<p><strong>Is Admin:</strong> {$user['isAdmin']}</p>";
 
                 echo "<div class='button-container'>";

@@ -50,6 +50,7 @@ $cartData = $Cart->showCart();
                     <th>Product ID</th>
                     <th>User ID</th>
                     <th>Product Name</th>
+                    <th>Product image</th>
                     <th>User Name</th>
                     <th>Product Price</th>
                     <th>Product Quantity</th>
@@ -60,8 +61,6 @@ $cartData = $Cart->showCart();
             </thead>
             <tbody>
                 <?php
-
-
                 $userData = $User->showUserByEmail($_SESSION['email']);
 
                 foreach ($userData as $user) {
@@ -71,27 +70,27 @@ $cartData = $Cart->showCart();
 
                         foreach ($userCartData as $row) {
                             $totalPrice = $row['product_price'] * $row['quantity'];
-
-
                             echo "<tr>
-                    <th>Order No.</th>
-                    <td>{$row['cart_id']}</td>
-                    <td>{$row['cart_product_id']}</td>
-                    <td>{$row['cart_user_id']}</td>
-                    <td>{$row['product_name']}</td>
-                    <td>{$row['user_name']}</td>
-                    <td>{$row['product_price']}</td>
-                    <td>{$row['quantity']}</td>
-                    <td>$totalPrice</td>
-                    <td>status</td>
-                    <td>
-                        <a href='delete.php?id={$row['cart_id']}' class='btn btn-danger' >Delete</a>
-                    </td>
-                  </tr>";
+                            <th>Order No.</th>
+                            <td>{$row['cart_id']}</td>
+                            <td>{$row['cart_product_id']}</td>
+                            <td>{$row['cart_user_id']}</td>
+                            <td>{$row['product_name']}</td>
+                            <td><img src='../admin{$row['product_image']}' width='100'></td>
+                            <td>{$row['user_name']}</td>
+                            <td>{$row['product_price']}</td>
+                            <td>{$row['quantity']}</td>
+                            <td>$totalPrice</td>
+                            <td>{$row['status']}</td>
+                <td>
+                    <a href='delete.php?id={$row['cart_id']}' class='btn btn-danger'>Delete</a>
+                </td>
+            </tr>";
                         }
                     }
                 }
                 ?>
+
             </tbody>
         </table>
     </div>

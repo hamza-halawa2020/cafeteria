@@ -49,7 +49,8 @@ $userData = $users->showUserByEmail($userEmail);
                             </li>
                             <li class="list-group-item">
                                 <strong>Profile Picture:</strong><br>
-                                <img src="<?php echo $user['profirPicturePath']; ?>" alt="Profile Picture" class="img-fluid">
+                                <img src="<?php echo './admin' . $user['profirPicturePath']; ?>" alt="Profile Picture"
+                                    class="img-fluid rounded" width='150px'>
                             </li>
                             <li class="list-group-item"><strong>Permission:</strong>
                                 <?php echo $user['isAdmin']; ?>
